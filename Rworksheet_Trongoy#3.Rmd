@@ -1,0 +1,54 @@
+---
+title: "RWorksheetTrongoy#3"
+author: "George Eduard Trongoy"
+date: "2024-09-30"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. 
+a. 
+```{r}
+f11 <- LETTERS[1:11]
+f11
+```
+
+b.
+```{r}
+odd <- LETTERS[seq(1, 26, by = 2)]
+odd
+```
+c.
+```{r}
+vowels <- LETTERS[LETTERS %in% c("A", "E", "I", "O", "U")]
+vowels
+```
+ 
+ d.
+```{r}
+lastfive <- letters[22:26]
+lastfive
+```
+ 
+ e.
+```{r}
+subset <- letters[15:24]
+subset
+```
+ 
+ f.
+```{r}
+
+```
+ 
+ 2.
+a. 
+```{r}
+
+```
+
+ 
+ 
