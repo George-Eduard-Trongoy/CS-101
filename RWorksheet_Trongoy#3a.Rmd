@@ -1,0 +1,146 @@
+---
+title: "RWorksheet_Trongoy#3a"
+author: "George Eduard Trongoy"
+date: "2024-10-03"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. 
+```{r}
+LETTERS
+letters
+```
+a. 
+```{r}
+f11 <- LETTERS[1:11]
+f11
+```
+b.
+```{r}
+odd <- LETTERS[seq(1, 26, by = 2)]
+print(odd)
+```
+c. 
+```{r}
+vowels <- LETTERS[LETTERS %in% c("A", "E", "I", "O", "U")]
+vowels
+```
+d.
+```{r}
+l5 <- letters[22:26]
+l5
+```
+e.
+```{r}
+mid <- letters[15:24]
+mid
+```
+2.
+```{r}
+citytemp<- c(Tuguegarao = 42, Manila = 39, Iloilo = 34, Tacloban = 34, Samal_Island = 30, Davao = 27)
+citytemp
+```
+a. 
+```{r}
+city <- c("Tuguegarao City", "Manila", "Iloilo City", "Tacloban", "Samal Island", "Davao City")
+city
+```
+b.
+```{r}
+temp <- c(42, 39, 34, 34, 30, 27)
+temp
+```
+d.
+```{r}
+citytempdf <- data.frame(city, temp)
+citytempdf
+
+```
+e.
+```{r}
+str(citytempdf)
+```
+f.
+```{r}
+citytempdf[3:4, ]
+```
+g. 
+```{r}
+highesttempcity <- citytempdf[which.max(citytempdf$Temperature), ]
+highesttempcity
+
+lowesttempcity <- citytempdf[which.min(citytempdf$Temperature), ]
+lowesttempcity
+```
+Matrices
+2.
+a.
+```{r}
+matrix_1 <- matrix(c(1:8, 11:14), nrow = 3, ncol = 4, byrow = TRUE)
+matrix_1
+```
+b. 
+```{r}
+matrix_2 <- matrix_1 * 2
+matrix_2
+```
+c.
+```{r}
+matrix_1[2, ]
+```
+d. 
+```{r}
+matrix_1[1:2, 3:4]
+```
+e. 
+```{r}
+matrix_1[3, 2:3]
+```
+f.
+```{r}
+matrix_1[, 4]
+```
+g.
+```{r}
+# Name rows and columns
+rownames(matrix_2) <- c("isa", "dalawa", "tatlo")
+colnames(matrix_2) <- c("uno", "dos", "tres", "quatro")
+matrix_2
+
+```
+h.
+```{r}
+dim(matrix_1) <- c(6, 2)
+matrix_1
+```
+
+ARRAYS
+3.
+a.
+```{r}
+values <- rep(c(1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1), times = 2)
+array <- array(values, dim = c(2, 4, 3))
+array
+```
+b.
+```{r}
+dim(array)
+```
+c. 
+```{r}
+dimnames(array) <- list(
+  c("a", "b"),           
+  c("A", "B", "C", "D"),
+  c("1st-Dimensional Array", "2nd-Dimensional Array", "3rd-Dimensional Array")
+)
+
+array
+
+```
+

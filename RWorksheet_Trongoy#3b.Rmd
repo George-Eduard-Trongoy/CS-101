@@ -1,0 +1,98 @@
+---
+title: "RWorkseet_Trongoy#3b"
+author: "George Eduard Trongoy"
+date: "2024-10-10"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1.
+a. 
+```{r}
+library(readxl)
+resdata <- read_excel("respondents_data.xlsx")
+head(resdata)
+```
+b. 
+```{r}
+str(resdata)
+summary(resdata)
+```
+c. yes
+
+d.
+. 
+```{r}
+firsttwo <- resdata[1:2, ]
+firsttwo
+```
+e. 
+```{r}
+selected <- resdata[c(3, 5), c(2, 4)]
+selected
+```
+f. 
+```{r}
+types_houses <- resdata$`Types of houses`
+types_houses
+```
+g.
+```{r}
+male_farmers <- resdata[resdata$Sex == 1 & resdata$`Fathers Occupation` == 1, ]
+male_farmers
+```
+h.
+```{r}
+females_with_siblings <- resdata[resdata$Sex == 2 & resdata$`Siblings at school` >= 5, ]
+females_with_siblings
+```
+2. 
+```{r}
+df = data.frame(Ints=integer(),
+Doubles=double(), Characters=character(), Logicals=logical(),
+Factors=factor(), stringsAsFactors=FALSE)
+print("Structure of the empty dataframe:")
+print(str(df))
+
+```
+a. The dataframe is empty but has 5 columns of different types.
+
+3. 
+a.
+```{r}
+respondents_data <- read.csv("respondents_data.csv")
+respondents_data
+```
+b.
+```{r}
+respondents_data$Sex <- factor(respondents_data$Sex, levels = c("Male", "Female"), labels = c(1, 2))
+respondents_data$Sex
+
+```
+c. 
+```{r}
+respondents_data$Types.of.Houses <- factor(respondents_data$Types.of.Houses, levels = c("Wood", "Concrete", "Semi-concrete"), labels = c(1, 2, 3))
+respondents_data$Types.of.Houses
+```
+d. 
+```{r}
+respondents_data$Fathers.Occupation <- factor(respondents_data$Fathers.Occupation, levels = c(1, 2, 3), labels = c("Farmer", "Driver", "Others"))
+respondents_data$Fathers.Occupation <- as.integer(respondents_data$Fathers.Occupation)
+respondents_data$Fathers.Occupation
+```
+e.
+```{r}
+females_driver <- respondents_data[respondents_data$Sex == 2 & respondents_data$Fathers.Occupation == 2, ]
+females_driver
+```
+f. 
+```{r}
+siblings5 <- respondents_data[respondents_data$Siblings.at.School >= 5, ]
+siblings5
+```
+4.
+The graph presents us with the sentiments of tweets per day. It is divided by color and each color defines what type of tweet was made. It is observeable that all the time people tend to post more negative posts than neutral or positive. This implies that people mostly use twitter to assert critical judgement or just to straight up hate on other people.
+
