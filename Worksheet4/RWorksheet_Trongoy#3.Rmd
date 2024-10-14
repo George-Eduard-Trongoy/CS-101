@@ -35,6 +35,17 @@ write.xlsx(data, "customerdata.xlsx")
 
 ```
  
+
+ b.
+```{r}
+male_data <- subset(data, Gender == 'M')
+male_data
+```
+```{r}
+female_data <- subset(data, Gender == 'F')
+female_data
+```
+ c.
 ```{r}
 mean_shoesize <- mean(data$Shoe_Size, na.rm = TRUE)
 mean_height <- mean(data$Height, na.rm = TRUE)
@@ -43,4 +54,46 @@ mean_shoesize
 mean_height
 ```
  
+d.
+ Yes, because taller people tend to have larger shoe sizes.
  
+ 
+ 2. 
+ 
+```{r}
+months <- c("March", "April", "January", "November", "January", "September", "October", "September", "November", "August", "January", "November", "November", "February", "May", "August", "July", "December", "August", "August", "September", "November", "February", "April")
+months
+
+```
+```{r}
+factor_months_vector <- factor(months)
+factor_months_vector
+```
+ 3.
+```{r}
+summary(months)
+```
+```{r}
+summary(factor_months_vector)
+```
+4.
+```{r}
+Direction <- c("East", "West", "North")
+Frequency <- c(1, 4, 3)
+directiondata <- data.frame(Direction, Frequency)
+directiondata
+```
+```{r}
+new_order_data <- factor(Direction,levels = c("East","West","North")) 
+print(new_order_data)
+```
+5.
+```{r}
+data <- read.table("student.csv", header = TRUE, sep = ",", stringsAsFactors = TRUE)
+data
+```
+```{r}
+View(data)
+```
+
+
