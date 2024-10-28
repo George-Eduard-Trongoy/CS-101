@@ -2,7 +2,10 @@
 title: "RWorksheet_Trongoy#4a"
 author: "George Eduard Trongoy"
 date: "2024-10-14"
-output: pdf_document
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}
@@ -100,18 +103,19 @@ View(data)
 
 a.
 
+
 ```{r}
 
-chosen_number <- as.numeric(readline(prompt = "Select a number from 1 to 50: "))
+#chosen_number <- as.numeric(readline(prompt = "Select a number from 1 to 50: "))
 
 
-if (is.na(chosen_number) || chosen_number < 1 || chosen_number > 50) {
-  cat("The number selected is beyond the range of 1 to 50\n")
-} else if (chosen_number == 20) {
-  cat("TRUE\n")
-} else {
-  cat("The selected number is:", chosen_number, "\n")
-}
+#if (is.na(chosen_number) || chosen_number < 1 || chosen_number > 50) {
+ # cat("The number selected is beyond the range of 1 to 50\n")
+#} else if (chosen_number == 20) {
+  #cat("TRUE\n")
+#} else {
+  #cat("The selected number is:", chosen_number, "\n")
+#}
 
 
 ```
