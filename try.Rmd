@@ -1,0 +1,124 @@
+---
+title: "HAHHAAHHAHa"
+author: "George Eduard Trongoy"
+date: "2024-10-17"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+numericVector <- c(1:20)
+numericVector
+```
+```{r}
+rank(numericVector)
+```
+```{r}
+bias <- c("Nayeon", "Chaeryoung", "Wendy", "Gehlee")
+bias
+```
+```{r}
+biaz[1]
+```
+
+
+
+```{r}
+rank(bias)
+```
+```{r}
+rank(letters)
+letters
+```
+
+```{r}
+biaz <- c("Hello world")
+biaz
+```
+```{r}
+bin <- factor(bias)
+bin
+```
+```{r}
+bias <- as.char(bias)
+bias
+```
+```{r}
+x <- readline(prompt="Enter a TWICE member.")
+print(paste(x, "is pretty."))
+```
+```{r}
+plot(1:10, type= "l")
+```
+```{r}
+plot( 1:10, main="Plot ni Jame", xlab="the x-axis", ylab="the y-axis")
+```
+```{r}
+plot(1:6, col="green", cex=4)
+```
+```{r}
+x<- c(5,7,8,7,2,2,9,4,11,12,9,6)
+y<- c(99,86,87,88,111,103,87,94,78,77,85,86)
+plot(x, y, main="Observation of Cars.", xlab = "car age", ylab = "car speed")
+```
+```{r}
+x <- c(10, 20, 30, 40)
+mylabel <- c("Babayi", "Loyal", "Honest", "Maganda")
+pie(x, label = mylabel, main = "Standards in James")
+```
+```{r}
+v <- c("A", "B", "C", "D")
+y <- c(2, 4, 6, 8)
+barplot(y, names.arg = v, col = "orange", horiz = "TRUE")
+```
+```{r}
+ggplotdata
+```
+
+```{r}
+data(iris)
+iris
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(iris, aes(x= Sepal.Length, y=Petal.Length, col =Species, shape =Species ))+geom_point() +geom_smooth()
+
+
+```
+
+```{r}
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+
+data("mtcars")
+
+ggplot(mtcars, aes(x = gear)) +geom_bar()+coord_flip()
+```
+```{r}
+ggplot(mtcars, aes(hp, mpg)) + geom_point(color = "red") + stat_summary(fun.y = "mean", geom = "line", linetype = "dashed")
+```
+```{r}
+ggplot(mtcars, aes(factor))
+```
+
+```{r}
+
+# Prompt the user to enter a price
+price <- as.numeric(readline(prompt = "Enter the price: "))
+
+# Add 12% VAT
+price_with_vat <- price * 1.12
+
+# Print the result
+cat("The price with 12% VAT added is:", price_with_vat, "\n")
+
+
+```
+
+

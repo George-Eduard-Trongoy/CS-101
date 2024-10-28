@@ -96,4 +96,66 @@ data
 View(data)
 ```
 
+6.
+
+a.
+
+```{r}
+
+chosen_number <- as.numeric(readline(prompt = "Select a number from 1 to 50: "))
+
+
+if (is.na(chosen_number) || chosen_number < 1 || chosen_number > 50) {
+  cat("The number selected is beyond the range of 1 to 50\n")
+} else if (chosen_number == 20) {
+  cat("TRUE\n")
+} else {
+  cat("The selected number is:", chosen_number, "\n")
+}
+
+
+```
+7. 
+```{r}
+# Define the function to calculate the minimum number of bills needed
+minimum_bills <- function(price) {
+  # Available bill denominations in descending order
+  bills <- c(1000, 500, 200, 100, 50)
+  
+  # Initialize the count of bills
+  count <- 0
+  
+  # Loop through each bill denomination to find the minimum number of bills
+  for (bill in bills) {
+    # Calculate the number of bills of this denomination
+    num_bills <- price %/% bill
+    
+    # Update the total count of bills
+    count <- count + num_bills
+    
+    # Update the remaining price
+    price <- price %% bill
+  }
+  
+  # Return the minimum number of bills
+  return(count)
+}
+
+# Loop until a valid input is received
+repeat {
+  # Prompt the user for input and convert it to numeric
+  price <- as.numeric(readline(prompt = "Enter the price of the snack (divisible by 50): "))
+  
+  # Check if input is valid (numeric, positive, and divisible by 50)
+  if (!is.na(price) && price > 0 && price %% 50 == 0) {
+    break
+  } else {
+    cat("Invalid input. Please enter a positive number divisible by 50.\n")
+  }
+}
+
+# Output the result
+cat("Minimum number of bills needed:", minimum_bills(price), "\n")
+
+```
 
