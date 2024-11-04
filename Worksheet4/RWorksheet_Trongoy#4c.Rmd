@@ -1,0 +1,117 @@
+---
+title: "RWorksheet_Trongoy#4c"
+author: "George Eduard Trongoy"
+date: "2024-11-04"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. 
+
+a.
+```{r}
+library(ggplot2)
+library(dplyr)
+
+data(mpg)
+write.csv(mpg, "mpg_data.csv", row.names = FALSE)
+mpg_data <- read.csv("mpg_data.csv")
+mpg_data
+```
+b.
+ the categorical variables are: manufacturer, model, trans(type of transmisionn), drv(type of drive train), fl(type of fuel consumed), class(the type of car)
+ 
+c.
+the contiuous vaiables are: displ(the engine displacement), year(manufacturing date), cyl(number pf cylinders), city(city miles per gallon), hwy(highway miles per galon)
+
+
+2.
+a.
+```{r}
+manufacturer_model_counts <- mpg %>%
+  group_by(manufacturer) %>%
+  summarise(unique_models = n_distinct(model)) %>%
+  arrange(desc(unique_models))
+
+# result
+manufacturer_model_counts
+
+model_variations <- mpg %>%
+  group_by(model) %>%
+  summarise(variations = n()) %>%
+  arrange(desc(variations))
+
+# result
+model_variations
+```
+
+b. 
+using basic plot:
+
+```{r}
+barplot(manufacturer_model_counts$unique_models, 
+        names.arg = manufacturer_model_counts$manufacturer, 
+        las = 2, col = "purple", main = "Unique Models by Manufacturer", 
+        xlab = "Manufacturer", ylab = "Number of Unique Models")
+```
+using ggplot2:
+```{r}
+library(ggplot2)
+
+ggplot(manufacturer_model_counts, aes(x = reorder(manufacturer, -unique_models), y = unique_models)) +
+  geom_bar(stat = "identity", fill = "black") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "Number of Unique Models by Manufacturer", x = "Manufacturer", y = "Unique Models")
+```
+2.
+```{r}
+ggplot(mpg, aes(x = model, y = manufacturer)) +
+  geom_point() +
+  labs(title = "Relationship between Car Model and Manufacturer",
+       x = "Car Model",
+       y = "Manufacturer") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+a.
+```{r}
+ggplot(mpg, aes(model, manufacturer)) + geom_point()
+```
+it plotted the relationship between model and manufacturer but the model axis seems to be compressed to the point of being glitchy.
+
+
+b.
+The plot gives a basic sense of how car models relate to their manufacturers, but it might not be super helpful as it is right now. If there are a lot of different models and manufacturers, the visualization can get pretty cluttered, making it hard to draw any meaningful insights. It may not convey much useful information at first glance.
+
+3.
+```{r}
+
+top_20_mpg <- mpg[order(mpg$year), ][1:20, ]
+
+
+ggplot(top_20_mpg, aes(x = factor(year), y = model)) +
+  geom_jitter(width = 0.2, height = 0.2) +  
+  labs(title = "Top 20 Car Models by Year",
+       x = "Year",
+       y = "Car Model") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+ 
+```
+4.
+```{r}
+car_counts <- mpg %>%
+  group_by(model) %>%
+  summarise(num_cars = n()) %>%
+  arrange(desc(num_cars)) 
+
+car_counts
+```
+
+a.
+```{r}
+
+```
+
